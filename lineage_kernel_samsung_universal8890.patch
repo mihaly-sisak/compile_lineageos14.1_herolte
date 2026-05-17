@@ -1,0 +1,52 @@
+diff --git a/arch/arm64/configs/exynos8890-hero2lte_defconfig b/arch/arm64/configs/exynos8890-hero2lte_defconfig
+index 9e28a0ca149..ce37f7449e8 100755
+--- a/arch/arm64/configs/exynos8890-hero2lte_defconfig
++++ b/arch/arm64/configs/exynos8890-hero2lte_defconfig
+@@ -152,7 +152,7 @@ CONFIG_UID16=y
+ CONFIG_SYSFS_SYSCALL=y
+ # CONFIG_SYSCTL_SYSCALL is not set
+ CONFIG_KALLSYMS=y
+-# CONFIG_KALLSYMS_ALL is not set
++CONFIG_KALLSYMS_ALL=y
+ CONFIG_PRINTK=y
+ CONFIG_BUG=y
+ CONFIG_ELF_CORE=y
+diff --git a/arch/arm64/configs/exynos8890-herolte_defconfig b/arch/arm64/configs/exynos8890-herolte_defconfig
+index bd6ceb8a3c9..ae307f279ca 100755
+--- a/arch/arm64/configs/exynos8890-herolte_defconfig
++++ b/arch/arm64/configs/exynos8890-herolte_defconfig
+@@ -152,7 +152,7 @@ CONFIG_UID16=y
+ CONFIG_SYSFS_SYSCALL=y
+ # CONFIG_SYSCTL_SYSCALL is not set
+ CONFIG_KALLSYMS=y
+-# CONFIG_KALLSYMS_ALL is not set
++CONFIG_KALLSYMS_ALL=y
+ CONFIG_PRINTK=y
+ CONFIG_BUG=y
+ CONFIG_ELF_CORE=y
+diff --git a/scripts/dtc/dtc-lexer.l b/scripts/dtc/dtc-lexer.l
+index 3b41bfca636..9b9c29e6f31 100644
+--- a/scripts/dtc/dtc-lexer.l
++++ b/scripts/dtc/dtc-lexer.l
+@@ -39,7 +39,7 @@ LINECOMMENT	"//".*\n
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
++extern YYLTYPE yylloc;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
+ #define	YY_USER_ACTION \
+diff --git a/scripts/dtc/dtc-lexer.lex.c_shipped b/scripts/dtc/dtc-lexer.lex.c_shipped
+index 2d30f41778b..d0eb405cb81 100644
+--- a/scripts/dtc/dtc-lexer.lex.c_shipped
++++ b/scripts/dtc/dtc-lexer.lex.c_shipped
+@@ -637,7 +637,7 @@ char *yytext;
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
++extern YYLTYPE yylloc;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
+ #define	YY_USER_ACTION \
